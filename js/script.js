@@ -35,7 +35,6 @@ if (ageUtente < 18) {
     sconto = 0;
 }
 
-
 const prezzoFinale = costoBase - sconto;
 document.getElementById('mio_id').innerHTML = 'Il prezzo finale è '+ prezzoFinale.toFixed(2);
 console.log(prezzoFinale);
