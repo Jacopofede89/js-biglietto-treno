@@ -20,21 +20,27 @@ console.log(ageUtente);
 
 // Generare il prezzo del biglietto
 
-let kmGeneretor = kmUtente * 0.21;
-console.log("Il totale per km è: ", kmGeneretor);
+let costoBase = kmUtente * 0.21;
+console.log("Il totale per km è: ", costoBase);
 
-// Applicare uno sconto del 20% per i minorenni
+let sconto;
 
-var discount = (kmGeneretor / 100) * 20;
-console.log("sconto: ", discount);
+if (ageUtente < 18) {
+    // sconto minorenni
+    sconto = (costoBase / 100) * 20;
+} else if (ageUtente > 65) {
+    // sconto over 65
+    sconto = (costoBase / 100) * 40;
+} else {
+    sconto = 0;
+}
 
-let discountUnder =  kmGeneretor - discount;
-console.log("Lo sconto per gli under18 è: ", discountUnder);
+
+const prezzoFinale = costoBase - sconto;
+document.getElementById('mio_id').innerHTML = 'Il prezzo finale è '+ prezzoFinale.toFixed(2);
+console.log(prezzoFinale);
 
 
-// if(ageUtente < 18){
-//     discount = kmGeneretor - 20;
-// } else (ageUtente > 65){
-//      discount = kmGeneretor - 40;
-// }
-// console.log("Lo sconto per gli under18 è: ", discount);
+
+
+
